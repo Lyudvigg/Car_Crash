@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Cars</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="./css/EDU_CLEAN.css">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+    <body>
+        <style>
+        #contentImg {
+            position: absolute;
+            left: 0px;
+            top: -5px;
+            height: 505px;
+            width: 1280px;
+        }
+
+        #contentImg1 {
+            position: absolute;
+            left: 1045px;
+            top: 39px;
+            height: 416px;
+            width: 250px;
+            border-radius: 10px;
+        }
+
+        .placeHolder {
+            position: absolute;
+            background: #CCCCCC;
+            height: 32px;
+        }
+
+        .glowEffect {
+            -moz-box-shadow: 0 0 10px #ff0000;
+            -webkit-box-shadow: 0 0 10px #ff0000;
+            box-shadow: 0px 0px 10px #ff0000;
+        }
+
+        /************ common styles ***************/
+
+        #titleBar {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            height: 50px;
+            width: 1280px;
+        }
+
+        #content {
+            position: absolute;
+            left: 0px;
+            top: 55px;
+            height: 620px;
+            width: 1280px;
+
+        }
+        </style>
+        <!-- Popup -->
+
+        <div class="first_popup_block d_none">
+            <img src="./assets/img/popup/popup1.png" alt="img">
+        </div>
+
+        <div class="second_popup_block d_none">
+                <img src="./assets/img/popup/popup2.png" alt="img">
+        </div>
+
+        <div class="third_popup_block d_none">
+            <img src="./assets/img/popup/popup3.png" alt="img">
+        </div>
+
+        <div id="wrapper">
+
+            <div id="BG"></div>
+
+            <div id="main_header"></div>
+
+            <div id="content">
+                <div id="titleBar">
+                    <div id="discCont" style="position:absolute; left:85px;
+                        top:10px; height:45px; width:1140px;">
+                        <p id="disc" style="margin-left:0px;
+                            margin-top:-5px; color:#666666;font-size:22px;"></p>
+                    </div>
+
+                </div>
+                <div id="stick-top"></div>
+                <div id="stick-bottom"></div>
+                <div id="mainContent">
+                    <audio class="myAudio">
+                        <source src="./assets/Audio/crash_2_.mp3"
+                            type="audio/mpeg"
+                            />
+                    </audio>
+                    <div class="container">
+                        <div class="way">
+                            <img src="./assets/img/filter/Sbg.png" alt="img"
+                                class="speed-bg d_none">
+                            <img src="./assets/img/filter/Sbg.png" alt="img"
+                                class="SecondSpeed-bg d_none">
+                            <img src="./assets/img/overall/arrow.png" alt="img"
+                                class="arrow-img">
+                            <span class="mass-text d_none">Mass:
+                                <span class="mass-count">750 kg</span>
+                            </span>
+                            <span class="SecondMass-text d_none">Mass:
+                                <span class="SecondMass-count">750 kg</span>
+                            </span>
+                            <span class="carSpeed d_none">Speed:
+                                <span class="carSpeedCount">10</span>
+                                \(\mathrm{m}{\cdot} {\mathrm{s}^{-1}} \)
+                            </span>
+                            <span class="SecondCarSpeed d_none">Speed:
+                                <span class="SecondCarSpeedCount">-10</span>
+                                \(\mathrm{m}{\cdot} {\mathrm{s}^{-1}} \)
+                            </span>
+                            <input type="range" value="10" max="20" min="0"
+                                step="1" class="FirstCar__Speed d_none">
+                            <input type="range" value="10" max="20" min="0"
+                                step="1" class="SecondCar__Speed d_none">
+                            <img
+                                src=""
+                                class="car carStart">
+                            <img
+                                src=""
+                                class="bot-car SecondCarStart">
+                        </div>
+                        <div class="filter-block">
+                            <div class="first-car-flt">
+                                <div class="cars-mass-block">
+                                    <button class="car-mass-btn wcar"
+                                        data-value="750">
+                                        <img
+                                            src="./assets//img/filter/first_car_flt/750kg.png"
+                                            alt="img">
+                                    </button>
+                                    <button class="car-mass-btn jeep"
+                                        data-value="1700">
+                                        <img
+                                            src="./assets/img/filter/first_car_flt/1700kg.png"
+                                            alt="img">
+                                    </button>
+                                    <button class="car-mass-btn truck"
+                                        data-value="5000">
+                                        <img
+                                            src="./assets/img/filter/first_car_flt/5000kg.png"
+                                            alt="img">
+                                    </button>
+                                    <button class="change-direction-btn"
+                                        disabled="disabled"></button>
+                                </div>
+                                <div class="cars-mass-DirectionChange-block
+                                    d_none">
+                                    <button class="car-mass-DirectionChange-btn
+                                        wcar"
+                                        data-value="750">
+                                        <img
+                                            src="./assets//img/filter/first_car_flt/750kgF.png"
+                                            alt="img">
+                                    </button>
+                                    <button class="car-mass-DirectionChange-btn
+                                        jeep"
+                                        data-value="1700" data-mi="1">
+                                        <img
+                                            src="./assets/img/filter/first_car_flt/1700kgF.png"
+                                            alt="img">
+                                    </button>
+                                    <button class="car-mass-DirectionChange-btn
+                                        truck"
+                                        data-value="5000">
+                                        <img
+                                            src="./assets/img/filter/first_car_flt/5000kgF.png"
+                                            alt="img">
+                                    </button>
+                                    <button class="change-direction-btn"
+                                        disabled="disabled"></button>
+                                </div>
+                            </div>
+                            <img src="./assets/img/filter/collision.PNG" class="Before_preliminary" alt="img">
+                            <div class="before_collision d_none">
+                                <span class="collision-row"><span
+                                        class="before--text">\( \sum
+                                        \boldsymbol{p}_\mathrm{before}\)</span>\(
+                                    = \space \boldsymbol{p}_\mathrm{1,i} +
+                                    \boldsymbol{p}_\mathrm{2,i}\)</span>
+                                <span class="collision-row">\(= \space
+                                    m_1\boldsymbol{v}_\mathrm{1,i} +
+                                    m_2\boldsymbol{v}_\mathrm{2,i}\)</span>
+                                <span class="collision-row">\( =\space
+                                    (\) <span class="firstCar-mass"></span>
+                                    \()(\) <span class="firstCar-speed">10</span>
+                                    \() + (\) <span class="SecondCar-mass"></span>
+                                    \()(\) <span class="SecondCar-speed">-10</span>
+                                    \()
+                                    \space \)</span>
+                                <span class="collision-row">\(= \space ( \)
+                                    <span class="firstCar__value"></span> \(
+                                    ) +
+                                    ( \) <span class="SecondCar__value"></span>
+                                    \( ) \)</span>
+                                <span class="collision-row">\(= \space ( \)
+                                    <span class="final-value"></span> \( )
+                                    \) \(
+                                    \mathrm{kg{\cdot}m{\cdot}s^{-1}} \)</span></span>
+                        </div>
+                        <img src="./assets/img/filter/Aftercollision.PNG" class="After_preliminary" alt="img">
+                        <div class="after_collision d_none">
+                            <span class="collision-row"><span
+                                    class="before--text">\( \sum
+                                    \boldsymbol{p}_\mathrm{after}\)</span>\(
+                                = \space \boldsymbol{p}_\mathrm{1,f} +
+                                \boldsymbol{p}_\mathrm{2,f}\)</span>
+                            <span class="collision-row">\(= \space
+                                m_1\boldsymbol{v}_\mathrm{1,f} +
+                                m_2\boldsymbol{v}_\mathrm{2,f}\)</span>
+                            <span class="collision-row">\( =\space
+                                (\) <span class="firstCar-mass"></span>
+                                \()(\) <span class="AfterfirstCar-speed"></span>
+                                \() + (\) <span class="SecondCar-mass"></span>
+                                \()(\) <span class="After_SecondCar-speed"></span>
+                                \()
+                                \space \)</span>
+                            <span class="collision-row">\(= \space ( \)
+                                <span class="After_firstCar__value"></span> \( ) +
+                                ( \) <span class="After_SecondCar__value"></span>
+                                \( ) \)</span>
+                            <span class="collision-row">\(= \space ( \)
+                                <span class="After_final-value"></span> \( ) \) \(
+                                \mathrm{kg{\cdot}m{\cdot}s^{-1}} \)</span>
+                        </div>
+                        <div class="second-car-flt">
+                            <div class="cars-mass-block">
+                                <button class="car-mass-btn wcar"
+                                    data-value="750">
+                                    <img alt="img"
+                                        src="./assets//img/filter/second_car_flt/750kg.png">
+                                </button>
+                                <button class="car-mass-btn jeep"
+                                    data-value="1700">
+                                    <img alt="img"
+                                        src="./assets/img/filter/second_car_flt/1700kg.png">
+                                </button>
+                                <button class="car-mass-btn truck"
+                                    data-value="5000">
+                                    <img alt="img"
+                                        src="./assets/img/filter/second_car_flt/5000kg.png">
+                                </button>
+                                <button class="change-direction-btn"
+                                    disabled="disabled"></button>
+                            </div>
+                            <div class="cars-mass-DirectionChange-block d_none">
+                                <button class="car-mass-DirectionChange-btn
+                                    wcar"
+                                    data-value="750">
+                                    <img
+                                        src="./assets//img/filter/second_car_flt/750kgF.png"
+                                        alt="img">
+                                </button>
+                                <button class="car-mass-DirectionChange-btn
+                                    jeep"
+                                    data-value="1700">
+                                    <img
+                                        src="./assets/img/filter/second_car_flt/1700kgF.png"
+                                        alt="img">
+                                </button>
+                                <button class="car-mass-DirectionChange-btn
+                                    truck"
+                                    data-value="5000">
+                                    <img
+                                        src="./assets/img/filter/second_car_flt/5000kgF.png"
+                                        alt="img">
+                                </button>
+                                <button class="change-direction-btn"
+                                    disabled="disabled"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="navBar">
+                <button class="go" disabled="disabled"></button>
+                <button class="reset"></button>
+            </div>
+            <div id="instPanel">
+                <h3></h3>
+                <div id="insTxtPanel">
+                    <p id="instTxt">
+                        <ol>
+                            <li>Click to select a vehicle. Decide in which
+                                direction it must travel.</li>
+                            <li>Use the slider to set the speed of the vehicle.</li>
+                            <li>Repeat the process for a second vehicle.</li>
+                            <li>Click GO to start the motion.</li>
+                            <li>Observe the momentum of each vehicle before and
+                                after the collision. Also note the total
+                                momentum before and after the collision.</li>
+                            <li>Click RESET to start again.</li>
+
+
+                        </ol>
+                    </div>
+                    <div id="insCloseBtn"></div>
+                </div>
+            </div>
+            <div id="main_footer"></div>
+
+        </div>
+
+        <!-- Script -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
+        <script src="./js/script.js"></script>
+
+        <script>
+                    $(function () {
+                    var mode = "prob";
+                    var devType = 2;
+                    var activityTitle = "Investigate the conservation of linear momentum";
+                    var gradeTitle = "Physical Sciences Grade <B>12</B>";
+        
+                    var discriptText = "Select two vehicles and set their velocities";
+        
+                    var screensRandom = false;
+                    var navigation = false;
+                    var totalScreens = 1;
+                    var maxScreens = 1;
+                    var screenLabelType = "number";//Its values are mumber/Alpha
+        
+                    var labelType = "image"//It's value is text/image;
+                    var sizesAreDifferent = false;
+        
+                    //***********
+                    var correctResponces = ["Fantastic!", "Well done!", "That’s right!", "Nice work!"];
+                    var inCorrectResponces = ["<p>Your response is incorrect!</p>", "<p>Sorry, that’s not correct.</p>"];
+                    var closerResponces = ["<p>Almost!</p>", "<p>You need only one.</p>"];
+                    //***********
+                    var strtLeft = 1080;
+        
+                    var tabSizes =
+                        [{ width: 295, height: 56 }]
+        
+        
+        
+                    var labels = [
+                        [
+                            { left: 670, top: 20, title: 'T1', type: 'label', key: 1 },
+                        ],
+                    ]
+                    var dropsPositions = [
+                        [{ left: 54, top: 36, key: [1] }],
+        
+                    ]
+        
+        
+        
+                    var dataObs = [];
+                    var currScreen = 1;
+                    var prevClickedBtn = null;
+                    var currDropsPositions = null;
+                    var deptCount = 0;
+                    var alertOpend = false;
+                    var backDone = false;
+                    var qNums = [];
+                    var alpabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                    document.title = activityTitle;
+                    var chars = [];
+        
+                    for (var i = 0; i < totalScreens; i++) {
+                        if (screenLabelType == "number") {
+                            chars.push(i + 1);
+                        } else {
+                            chars.push(alpabets.charAt(i));
+                        }
+                    }
+                    function setPosions() {
+        
+                        $("#disc").html(discriptText);
+                        $("#disc").css({'font-size':'21px', 'margin-top' : '0'})
+                        enableCheck(false);
+                        // $("#mainContent").empty();
+                        $("#instPanel").hide();
+                        $("#responceBox").hide();
+                        $("#responceBoxAns").hide();
+        
+                        // $("#mainContent").append("<div id='contentImg'></div>");
+                        // $("#contentImg").css("background", "url(assets/bg.png)no-repeat");
+                        // $("#contentImg").css("background-size", "100%");
+                    }
+        
+        
+                    function onCheckHandler() {
+        
+                    }
+        
+                    function showCorrectAnswers() {
+        
+                    }
+        
+                    function getCorrectObject(inpKey) {
+        
+                    }
+        
+        
+                    function getCloserResponces() {
+                        closerResponces = randamiseArray(closerResponces);
+                        return closerResponces[0];
+                    }
+                    function getCorrectResponce() {
+                        correctResponces = randamiseArray(correctResponces);
+                        return correctResponces[0];
+                    }
+        
+                    function getInCorrectResponce() {
+                        inCorrectResponces = randamiseArray(inCorrectResponces);
+                        return inCorrectResponces[0];
+                    }
+        
+        
+        
+                    function randamiseArray(inpArr) {
+                        var tempArr = [];
+                        while (inpArr.length > 0) {
+                            var randomIndex = Math.floor(Math.random() * inpArr.length);
+                            tempArr.push(inpArr[randomIndex]);
+                            inpArr.splice(randomIndex, 1);
+                        }
+                        return tempArr;
+                    }
+        
+        
+                    function enableCheck(flag) {
+                        if (flag) {
+                            $("#checkBtn").css("opacity", "1");
+                            $("#checkBtn").css("cursor", "pointer");
+                        } else {
+                            $("#checkBtn").css("opacity", ".5");
+                            $("#checkBtn").css("cursor", "default");
+                        }
+        
+                    }
+                    function init() {
+                        for (var i = 0; i < maxScreens; i++) {
+                            qNums.push(i);
+                        }
+                        if (screensRandom == true) {
+                            qNums = randamiseArray(qNums);
+                        }
+        
+                        $("#main_footer").html(gradeTitle);
+                        $("#main_header").html(activityTitle);
+        
+                        for (i = 0; i < labels.length; i++) {
+                            labels[i]["labelPositions"] = [];
+                            labels[i]["functionPositions"] = [];
+                            for (j = 0; j < labels[i].length; j++) {
+                                if (labels[i][j].type == "label") {
+                                    labels[i]["labelPositions"].push({ left: labels[i][j].left, top: labels[i][j].top });
+                                } else {
+                                    labels[i]["functionPositions"].push({ left: labels[i][j].left, top: labels[i][j].top });
+                                }
+                            }
+                            labels[i]["labelPositions"] = randamiseArray(labels[i]["labelPositions"]);
+                            labels[i]["functionPositions"] = randamiseArray(labels[i]["functionPositions"]);
+                            var fnId = 0;
+                            var lbId = 0;
+                            for (j = 0; j < labels[i].length; j++) {
+                                if (labels[i][j].type == "label") {
+                                    labels[i][j].left = labels[i]["labelPositions"][lbId].left;
+                                    labels[i][j].top = labels[i]["labelPositions"][lbId].top;
+                                    lbId++;
+                                } else {
+                                    //labels[i][j].left = labels[i]["functionPositions"][fnId].left;
+                                    //labels[i][j].top = labels[i]["functionPositions"][fnId].top;
+                                    fnId++;
+                                }
+                            }
+                        }
+                        //qNums = randamiseArray(qNums);
+        
+                        if (navigation == true) {
+                            $("#navBar").append("<div id='navHolder' />");
+                            for (i = 0; i < totalScreens + 2; i++) {
+                                var left = i * 60;
+                                var id = (i != (totalScreens + 1) && i != 0) ? "screen_" + i : (i == 0 ? "prevBtn" : "nextBtn");
+                                var label = (i != (totalScreens + 1) && i != 0) ? chars[i - 1] : (i == 0 ? "<" : ">");
+                                $("#navHolder").append("<div id='" + id + "' class='navButton' style='top:0px; left:" + left + "px;' >" + label + "</div>");
+                            }
+                            $("#prevBtn").addClass("prevbutton-disable");
+                            $("#prevBtn").addClass("navbutton-disable");
+                            $("#nextBtn").addClass("prevbutton-disable");
+                            $("#screen_1").addClass("navbutton-disable");
+                            prevClickedBtn = $("#screen_1");
+                            $("#counterCircle").text(chars[currScreen - 1]);
+                        } else {
+                            $("#counterBox").hide();
+                            $("#discCont").css("left", 65);
+                        }
+        
+                        $("#navBar").append("<div id='instBtn'><h3></h3></div>");
+        
+                        //$("#checkBtn").hide();
+                        $("#navBar").append("<div id='responceBox'></div>");
+                        $("#navBar").append("<div id='responceBoxAns'></div>");
+                        $("#responceBox").append("<div id='responceTxt1'></div>");
+                        $("#responceBoxAns").append("<div id='responceTxt2'></div>");
+                        $("#responceBoxAns").append("<div id='nextqueBtn'><p>Next</p></div>");
+                        $("#responceBox").hide();
+                        $("#responceBoxAns").hide();
+        
+                        $("#navBar").append("<div id='responceAlert'></div>");
+                        $("#responceAlert").append("<div id='responceTxt'></div>");
+                        $("#responceAlert").append("<div id='tryAgainBtn'><p>Try again</p></div>");
+                        $("#responceAlert").append("<div id='showAnsBtn'><p>Reveal answer</p></div>");
+        
+                        $("#responceAlert").hide();
+        
+                        $("#nextqueBtn").click(function () {
+        
+        
+                            $("#responceBoxAns").animate({ opacity: 0, top: 100 }, function () {
+                                $("#responceBoxAns").hide();
+        
+                            });
+                            currScreen++;
+                            if (currScreen == totalScreens) {
+                                $("#nextBtn").addClass("navbutton-disable");
+                                $("#prevBtn").removeClass("navbutton-disable");
+        
+                            } else {
+                                $("#prevBtn").removeClass("navbutton-disable");
+                                $("#nextBtn").removeClass("navbutton-disable");
+                            }
+                            $("#screen_" + currScreen).addClass("navbutton-disable");
+                            if (prevClickedBtn)
+                                prevClickedBtn.removeClass("navbutton-disable");
+        
+                            prevClickedBtn = $("#screen_" + currScreen);
+        
+                            setPosions();
+                        });
+        
+        
+                        $("#tryAgainBtn").click(function () {
+                            alertOpend = false;
+                            $("#responceAlert").animate({ opacity: 0, top: 100 }, function () {
+                                $("#responceAlert").hide();
+                            });
+                        });
+                        $("#showAnsBtn").click(function () {
+                            alertOpend = false;
+                            $("#responceAlert").animate({ opacity: 0, top: 100 }, "slow", function () {
+                                $("#responceAlert").hide();
+                                showCorrectAnswers();
+                            });
+                        });
+        
+                        $(".navButton").mouseover(function () {
+                            if (alertOpend) {
+                                return false;
+                            }
+                            if ($(this).hasClass("navbutton-disable")) {
+                                return;
+                            }
+        
+                            $(this).addClass("navButton-over");
+                        });
+        
+                        $(".navButton").mousedown(function () {
+                            if (alertOpend) {
+                                return false;
+                            }
+                            if ($(this).hasClass("navbutton-disable")) {
+                                return;
+                            }
+        
+                            $(this).addClass("navButton-over");
+                        });
+                        $(".navButton").mouseout(function () {
+                            if (alertOpend) {
+                                return false;
+                            }
+                            $(this).removeClass("navButton-over");
+                        });
+                        //Navigation click event starts
+        
+                        $(".navButton").click(function () {
+                            if (alertOpend) {
+                                return false;
+                            }
+                            $(this).removeClass("navButton-over");
+                            if ($(this).hasClass("navbutton-disable")) {
+                                return;
+                            }
+                            var clickedId = $(this).attr("id");
+        
+                            if (clickedId == "prevBtn") {
+                                currScreen--;
+                            } else if (clickedId == "nextBtn") {
+                                currScreen++;
+        
+                            } else {
+                                currScreen = Number(clickedId.split("_")[1]);
+        
+                            }
+                            //0alert(clickedId+"    : "+currScreen)
+                            $("#counterCircle").text(chars[currScreen - 1]);
+                            if (currScreen == 1) {
+                                $("#prevBtn").addClass("prevbutton-disable");
+                                $("#prevBtn").addClass("navbutton-disable");
+                                //$("#nextBtn").removeClass("prevbutton-disable");
+                                $("#nextBtn").removeClass("navbutton-disable");
+        
+                            } else if (currScreen == totalScreens) {
+                                $("#nextBtn").addClass("navbutton-disable");
+                                $("#prevBtn").removeClass("navbutton-disable");
+                            } else {
+                                $("#prevBtn").removeClass("navbutton-disable");
+                                $("#nextBtn").removeClass("navbutton-disable");
+                            }
+                            $("#screen_" + currScreen).addClass("navbutton-disable");
+        
+                            if (prevClickedBtn)
+                                prevClickedBtn.removeClass("navbutton-disable");
+        
+                            prevClickedBtn = $("#screen_" + currScreen);
+        
+                            setPosions();
+        
+                        });
+                        //Navigation click event ends
+        
+                        $("#instBtn").click(function () {
+                            if (alertOpend) {
+                                return false;
+                            }
+                            $("#instPanel").show();
+        
+                        });
+                        $("#instBtn").mouseover(function () {
+                            if (alertOpend) {
+                                return false;
+                            }
+                            $("#instBtn").addClass("instBtn-hover");
+        
+                        });
+                        $("#instBtn").mouseout(function () {
+                            if (alertOpend) {
+                                return false;
+                            }
+                            $("#instBtn").removeClass("instBtn-hover");
+        
+                        });
+        
+                        $("#instBtn").mousedown(function () {
+                            if (alertOpend) {
+                                return false;
+                            }
+                            $("#instBtn").addClass("instBtn-down");
+        
+                        });
+                        $("#instBtn").mouseup(function () {
+                            if (alertOpend) {
+                                return false;
+                            }
+                            $("#instBtn").removeClass("instBtn-down");
+        
+                        });
+        
+                        $("#insCloseBtn").click(function () {
+        
+                            $("#instPanel").hide();
+        
+                        });
+                        //TryAgain
+                        $("#tryAgainBtn").mouseover(function () {
+                            $("#tryAgainBtn").addClass("tryAgainBtnhover");
+        
+                        });
+                        $("#tryAgainBtn").mouseout(function () {
+        
+                            $("#tryAgainBtn").removeClass("tryAgainBtnhover");
+        
+                        });
+        
+                        $("#tryAgainBtn").mousedown(function () {
+        
+                            $("#tryAgainBtn").addClass("tryAgainBtn-down");
+        
+                        });
+        
+                        $("#tryAgainBtn").mouseup(function () {
+        
+                            $("#tryAgainBtn").removeClass("tryAgainBtn-down");
+        
+                        });
+                        ///TryAgain
+                        //Showanswers
+                        $("#showAnsBtn").mouseover(function () {
+                            $("#showAnsBtn").addClass("showAnsBtnhover");
+        
+                        });
+                        $("#showAnsBtn").mouseout(function () {
+                            $("#showAnsBtn").removeClass("showAnsBtnhover");
+        
+                        });
+        
+                        $("#showAnsBtn").mousedown(function () {
+                            $("#showAnsBtn").addClass("showAnsBtn-down");
+        
+                        });
+        
+                        $("#showAnsBtn").mouseup(function () {
+                            $("#showAnsBtn").removeClass("showAnsBtn-down");
+        
+                        });
+                        //Showanswers			
+                        $("#nextqueBtn").mouseover(function () {
+                            $("#nextqueBtn").addClass("nextqueBtnover");
+        
+                        });
+                        $("#nextqueBtn").mouseout(function () {
+                            $("#nextqueBtn").removeClass("nextqueBtnover");
+        
+                        });
+        
+        
+                        ///Next
+        
+                        $("#checkBtn").mouseover(function () {
+                            if ($("#checkBtn").css("opacity") == .5) {
+                                return;
+                            }
+                            $("#checkBtn").addClass("checkBtnOver");
+                        });
+        
+                        $("#checkBtn").mouseout(function () {
+                            $("#checkBtn").removeClass("checkBtnOver");
+                        });
+                        $("#checkBtn").mousedown(function () {
+                            if ($("#checkBtn").css("opacity") == .5) {
+                                return;
+                            }
+                            $("#checkBtn").addClass("checkBtn-down");
+                        });
+        
+                        $("#checkBtn").mouseup(function () {
+                            $("#checkBtn").removeClass("checkBtn-down");
+                        });
+        
+        
+                        $("#checkBtn").click(onCheckHandler);
+        
+        
+        
+                        setPosions();
+        
+                    }
+                    init();
+        
+                })
+            </script>
+    </body>
+</html>

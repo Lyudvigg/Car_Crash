@@ -1,0 +1,493 @@
+/* Global CSS */
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    outline: none !important;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    -ms-box-shadow: none;
+}
+
+button, a {
+    cursor: pointer;
+    text-decoration: none !important;
+    border: 0;
+    display: inline-block;
+}
+
+a {
+    color: #007bff;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
+}
+
+a:hover {
+    text-decoration: none !important;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+a:hover, a:focus {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+img {
+    vertical-align: middle;
+    max-width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.container {
+    width: 1280px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+/* way */
+
+.car {
+    position: absolute;
+    bottom: 305px;
+    vertical-align: middle;
+    z-index: 1001;
+    max-height: 70px;
+    left: 4%;
+}
+
+.carStart {
+    -webkit-animation: movecar;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-play-state: paused;
+    animation-duration: 20s;
+}
+
+.carDirectionChange {
+    right: 55%;
+    left: auto;
+}
+
+.carDirectionChange.carStart {
+    -webkit-animation: carDirectionChange;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-play-state: paused;
+    left: auto;
+}
+
+.bot-car {
+    position: absolute;
+    vertical-align: middle;
+    bottom: 305px;
+    z-index: 1000;
+    max-height: 70px;
+    right: 4%;
+}
+
+.SecondCarStart {
+    -webkit-animation: movebotcar;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-play-state: paused;
+}
+
+.SecondCarDirectionChange {
+    left: 55%;
+}
+
+.SecondCarDirectionChange.SecondCarStart {
+    -webkit-animation: SecondCarDirectionChange;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    -webkit-animation-play-state: paused;
+    animation-fill-mode: forwards;
+    right: auto;
+}
+
+@keyframes movecar {
+    from {
+        left: 4%;
+    }
+    to {
+        left: 200%;
+    }
+}
+
+@keyframes carDirectionChange {
+    from {
+        right: 55%;
+    }
+    to {
+        right: 200%;
+    }
+}
+
+@keyframes SecondCarDirectionChange {
+    from {
+        left: 55%;
+    }
+    to {
+        left: 200%;
+    }
+}
+
+@keyframes movebotcar {
+    from {
+        right: 4%;
+    }
+    to {
+        right: 200%;
+    }
+}
+
+/* Filter */
+
+.cars-mass {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
+
+.car-mass-btn {
+    width: 170px;
+    height: 35px;
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.cars-mass-block, .cars-mass-DirectionChange-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.car-mass-DirectionChange-btn {
+    width: 170px;
+    height: 35px;
+    background: transparent;
+    cursor: pointer;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+
+.filter-block {
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin-top: 279px;
+    justify-content: space-between;
+}
+
+.first-car-flt {
+    padding-left: 15px;
+}
+
+.second-car-flt {
+    padding-right: 15px;
+}
+
+.change-direction-btn {
+    width: 190px;
+    height: 55px;
+    background: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 150px;
+}
+
+.first-car-flt .change-direction-btn {
+    background-image: url('../assets/img/filter/westeast.png');
+    left: 0px;
+}
+
+.second-car-flt .change-direction-btn {
+    background-image: url('../assets/img/filter/eastwest.png');
+    right: 0px;
+}
+
+.FirstCar__Speed, .SecondCar__Speed {
+    -webkit-appearance: none;
+    background-image: url('../assets/img/filter/slider.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 150px;
+    height: 10px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    position: absolute;
+    top: 17px;
+}
+
+.FirstCar__Speed {
+    left: 437px;
+}
+
+.SecondCar__Speed {
+    left: 880px;
+}
+
+.speed-bg {
+    position: absolute;
+    width: 350px;
+    top: 0px;
+    left: 270px;
+}
+
+.SecondSpeed-bg {
+    position: absolute;
+    width: 350px;
+    top: 0px;
+    left: 713px;
+}
+
+.FirstCar__Speed::-webkit-slider-thumb, .SecondCar__Speed::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 25px;
+    height: 25px;
+    background-image: url('../assets/img/filter/red_button.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+.SecondCar__Speed::-webkit-slider-thumb {
+    background-image: url('../assets/img/filter/blu_button.png');
+}
+
+.go {
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background: transparent;
+    background-image: url('../assets/img/filter/go.png');
+    background-size: cover;
+    background-position: center;
+    bottom: 0;
+    right: 270px;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    pointer-events: all !important;
+}
+
+.reset {
+    position: absolute;
+    width: 150px;
+    height: 50px;
+    background: transparent;
+    background-image: url('../assets/img/filter/reset.png');
+    background-size: cover;
+    background-position: center;
+    bottom: 0;
+    right: 100px;
+}
+
+.mass-text, .SecondMass-text, .SecondCarSpeed, .carSpeed {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    position: absolute;
+    top: 202px;
+}
+
+.mass-text {
+    left: 55px;
+}
+
+.SecondMass-text {
+    left: 930px;
+}
+
+.carSpeed {
+    left: 200px;
+}
+
+.SecondCarSpeed {
+    left: 1075px;
+}
+
+.before_collision {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    position: absolute;
+    left: 300px;
+    top: 25px;
+}
+
+.after_collision {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    position: absolute;
+    left: 750px;
+    top: 25px;
+}
+
+.before--text {
+    position: absolute;
+    left: -95px;
+}
+
+.firstCar-mass, .firstCar-speed, .SecondCar-mass, .SecondCar-speed,.AfterfirstCar-speed, .After_SecondCar-speed {
+    font-family: MJXc-TeX-main-R, MJXc-TeX-main-Rw;
+    display: inline-block;
+    min-width: 30px;
+    text-align: center;
+    color: transparent;
+}
+
+.firstCar-mass {
+    color: #CD3434;
+    min-width: 30px;
+    display: inline-block;
+    text-align: center;
+}
+
+.SecondCar-mass {
+    color: #34349A;
+    min-width: 30px;
+    display: inline-block;
+    text-align: center;
+}
+
+.collision-row {
+    margin-bottom: 10px;
+}
+
+.collision-row:last-child {
+    margin-bottom: 0;
+}
+
+.arrow-img {
+    position: absolute;
+    right: 20px;
+    top: 5px;
+    width: 120px;
+}
+
+.firstCar__value, .SecondCar__value, .final-value, .After_firstCar__value, .After_SecondCar__value, .After_final-value {
+    min-width: 30px;
+    display: inline-block;
+    text-align: center;
+}
+
+.final-value {
+    color: transparent;
+}
+
+.Before_preliminary {
+    position: absolute;
+    z-index: 1000;
+    width: 424px;
+    height: 219px;
+    left: 198px;
+    top: 2px;
+}
+
+.After_preliminary {
+    position: absolute;
+    z-index: 1000;
+    width: 424px;
+    height: 219px;
+    left: 629px;
+    top: 2px;
+}
+
+/* Popup */
+
+.first_popup_block, .third_popup_block,.second_popup_block {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.first_popup_block img, .third_popup_block img,.second_popup_block img {
+    width: 500px;
+}
+
+/* Display Class */
+
+.d_none {
+    display: none;
+}
+
+.d_flex {
+    display: flex;
+}
