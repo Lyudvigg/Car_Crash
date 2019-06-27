@@ -334,6 +334,10 @@ body {
     right: 270px;
 }
 
+.go:disabled {
+    opacity: .5;
+}
+
 button:disabled {
     cursor: not-allowed;
     pointer-events: all !important;
@@ -462,6 +466,34 @@ button:disabled {
     height: 219px;
     left: 629px;
     top: 2px;
+}
+
+.firstCar-speed, .SecondCar-speed, .firstCar__value, .SecondCar__value, .final-value, .AfterfirstCar-speed, .After_SecondCar-speed, .After_firstCar__value, .After_SecondCar__value, .After_final-value {
+    position: relative;
+    font-family: 'MJXc-TeX-main-R, MJXc-TeX-main-Rw';
+}
+
+.firstCar-speed.active::after, .SecondCar-speed.active::after, .firstCar__value.active::after, .SecondCar__value.active::after, .final-value.active::after, .AfterfirstCar-speed.active::after, .After_SecondCar-speed.active::after, .After_final-value.active::after, .After_firstCar__value.active::after, .After_SecondCar__value.active::after {
+    content: '';
+    width: 12.8px;
+    height: 5px;
+    background: #ffffff;
+    position: absolute;
+    left: 0px;
+    top: 10px;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+}
+
+.firstCar__value.active::after, .SecondCar__value.active::after, .After_firstCar__value.active::after, .After_SecondCar__value.active::after {
+    width: 6px;
+}
+
+.final-value.active::after, .After_final-value.active::after {
+    width: 6px; 
 }
 
 /* Popup */

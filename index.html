@@ -56,7 +56,9 @@
             top: 55px;
             height: 620px;
             width: 1280px;
-
+        }
+        #main_footer b {
+            font-weight: 700;
         }
         </style>
         <!-- Popup -->
@@ -66,7 +68,7 @@
         </div>
 
         <div class="second_popup_block d_none">
-                <img src="./assets/img/popup/popup2.png" alt="img">
+            <img src="./assets/img/popup/popup2.png" alt="img">
         </div>
 
         <div class="third_popup_block d_none">
@@ -111,23 +113,23 @@
                                 <span class="SecondMass-count">750 kg</span>
                             </span>
                             <span class="carSpeed d_none">Speed:
-                                <span class="carSpeedCount">10</span>
+                                <span class="carSpeedCount">0</span>
                                 \(\mathrm{m}{\cdot} {\mathrm{s}^{-1}} \)
                             </span>
                             <span class="SecondCarSpeed d_none">Speed:
-                                <span class="SecondCarSpeedCount">-10</span>
+                                <span class="SecondCarSpeedCount">0</span>
                                 \(\mathrm{m}{\cdot} {\mathrm{s}^{-1}} \)
                             </span>
-                            <input type="range" value="10" max="20" min="0"
+                            <input type="range" value="0" max="20" min="0"
                                 step="1" class="FirstCar__Speed d_none">
-                            <input type="range" value="10" max="20" min="0"
+                            <input type="range" value="0" max="20" min="0"
                                 step="1" class="SecondCar__Speed d_none">
                             <img
                                 src=""
-                                class="car carStart">
+                                class="car">
                             <img
                                 src=""
-                                class="bot-car SecondCarStart">
+                                class="bot-car">
                         </div>
                         <div class="filter-block">
                             <div class="first-car-flt">
@@ -180,7 +182,8 @@
                                         disabled="disabled"></button>
                                 </div>
                             </div>
-                            <img src="./assets/img/filter/collision.PNG" class="Before_preliminary" alt="img">
+                            <img src="./assets/img/filter/collision.PNG"
+                                class="Before_preliminary" alt="img">
                             <div class="before_collision d_none">
                                 <span class="collision-row"><span
                                         class="before--text">\( \sum
@@ -192,22 +195,43 @@
                                     m_2\boldsymbol{v}_\mathrm{2,i}\)</span>
                                 <span class="collision-row">\( =\space
                                     (\) <span class="firstCar-mass"></span>
-                                    \()(\) <span class="firstCar-speed">10</span>
+                                    \()(\)
+                                    <span class="mjx-char MJXc-TeX-main-R
+                                        firstCar-speed-minus"
+                                        style="margin-right: -10px; display:
+                                        none;">−</span>
+                                    <span class="firstCar-speed">0</span>
                                     \() + (\) <span class="SecondCar-mass"></span>
-                                    \()(\) <span class="SecondCar-speed">-10</span>
+                                    \()(\)
+                                    <span class="mjx-char MJXc-TeX-main-R
+                                        SecondCar-speed-minus"
+                                        style="margin-right: -10px; display:
+                                        none;">−</span>
+                                    <span class="SecondCar-speed">0</span>
                                     \()
                                     \space \)</span>
                                 <span class="collision-row">\(= \space ( \)
+                                    <span class="mjx-char MJXc-TeX-main-R
+                                        firstCar__value-minus"
+                                        style="display: none;">−</span>
                                     <span class="firstCar__value"></span> \(
                                     ) +
-                                    ( \) <span class="SecondCar__value"></span>
+                                    ( \)
+                                    <span class="mjx-char MJXc-TeX-main-R
+                                        SecondCar__value-minus"
+                                        style="display: none;">−</span>
+                                    <span class="SecondCar__value"></span>
                                     \( ) \)</span>
                                 <span class="collision-row">\(= \space ( \)
+                                    <span class="mjx-char MJXc-TeX-main-R
+                                        final-value-minus"
+                                        style="display: none;">−</span>
                                     <span class="final-value"></span> \( )
                                     \) \(
                                     \mathrm{kg{\cdot}m{\cdot}s^{-1}} \)</span></span>
                         </div>
-                        <img src="./assets/img/filter/Aftercollision.PNG" class="After_preliminary" alt="img">
+                        <img src="./assets/img/filter/Aftercollision.PNG"
+                            class="After_preliminary" alt="img">
                         <div class="after_collision d_none">
                             <span class="collision-row"><span
                                     class="before--text">\( \sum
@@ -218,18 +242,40 @@
                                 m_1\boldsymbol{v}_\mathrm{1,f} +
                                 m_2\boldsymbol{v}_\mathrm{2,f}\)</span>
                             <span class="collision-row">\( =\space
-                                (\) <span class="firstCar-mass"></span>
-                                \()(\) <span class="AfterfirstCar-speed"></span>
+                                (\) <span class="firstCar-mass">
+
+                                </span>
+                                \()(\)
+                                <span class="mjx-char MJXc-TeX-main-R
+                                    AfterfirstCar-speed-minus"
+                                    style="margin-right: -10px; display: none;">−</span>
+                                <span class="AfterfirstCar-speed"></span>
                                 \() + (\) <span class="SecondCar-mass"></span>
-                                \()(\) <span class="After_SecondCar-speed"></span>
+                                \()(\)
+                                <span class="mjx-char MJXc-TeX-main-R
+                                    After_SecondCar-speed-minus"
+                                    style="margin-right: -10px; display: none;">−</span>
+                                <span class="After_SecondCar-speed"></span>
                                 \()
                                 \space \)</span>
                             <span class="collision-row">\(= \space ( \)
-                                <span class="After_firstCar__value"></span> \( ) +
-                                ( \) <span class="After_SecondCar__value"></span>
+                                <span class="mjx-char MJXc-TeX-main-R
+                                    After_firstCar__value-minus"
+                                    style="display: none;">−</span>
+                                <span class="After_firstCar__value"></span> \( )
+                                +
+                                ( \)
+                                <span class="mjx-char MJXc-TeX-main-R
+                                    After_SecondCar__value-minus"
+                                    style="display: none;">−</span>
+                                <span class="After_SecondCar__value"></span>
                                 \( ) \)</span>
                             <span class="collision-row">\(= \space ( \)
-                                <span class="After_final-value"></span> \( ) \) \(
+                                <span class="mjx-char MJXc-TeX-main-R
+                                    After_final-value-minus"
+                                    style="display: none;">−</span>
+                                <span class="After_final-value"></span> \( ) \)
+                                \(
                                 \mathrm{kg{\cdot}m{\cdot}s^{-1}} \)</span>
                         </div>
                         <div class="second-car-flt">
@@ -290,17 +336,17 @@
                 <div id="insTxtPanel">
                     <p id="instTxt">
                         <ol>
-                            <li>Click to select a vehicle. Decide in which
+                            <li>1. Click to select a vehicle. Decide in which
                                 direction it must travel.</li>
-                            <li>Use the slider to set the speed of the vehicle.</li>
-                            <li>Repeat the process for a second vehicle.</li>
-                            <li>Click GO to start the motion.</li>
-                            <li>Observe the momentum of each vehicle before and
+                            <li>2. Use the slider to set the speed of the
+                                vehicle.</li>
+                            <li>3. Repeat the process for a second vehicle.</li>
+                            <li>4. Click GO to start the motion.</li>
+                            <li>5. Observe the momentum of each vehicle before
+                                and
                                 after the collision. Also note the total
                                 momentum before and after the collision.</li>
-                            <li>Click RESET to start again.</li>
-
-
+                            <li>6. Click RESET to start again.</li>
                         </ol>
                     </div>
                     <div id="insCloseBtn"></div>
@@ -324,7 +370,7 @@
                     var activityTitle = "Investigate the conservation of linear momentum";
                     var gradeTitle = "Physical Sciences Grade <B>12</B>";
         
-                    var discriptText = "Select two vehicles and set their velocities";
+                    var discriptText = "Select two vehicles and set their velocities.";
         
                     var screensRandom = false;
                     var navigation = false;
