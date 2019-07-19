@@ -352,11 +352,11 @@ body {
 
 #instPanel {
 	position: absolute;
-	top: 205px;
-	left: 36px;
+	top: 260px;
+	left: 10px;
 	height: 292px;
-	width: 485px;
-	background: url('../assets/img/overall/instpanel.png')no-repeat;
+	width: 1260px;
+	background: url('../assets/img/overall/instPanelBig.png')no-repeat;
 	background-size: 100%;
 	z-index: 1002;
 	font-weight: bold;
@@ -377,7 +377,7 @@ body {
     left: 0px;
     /* border-top: solid black 1px; */
     background: #fff;
-    width: 485px;
+    width: 1260px;
     padding-right: 15px;
 }
 
@@ -404,7 +404,7 @@ body {
 	height: 40px;
 	width: 60px;
 	top: 9px;
-	left: 414px;
+	left: 1175px;
 	cursor: pointer;
 }
 

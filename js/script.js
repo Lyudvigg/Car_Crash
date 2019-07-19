@@ -110,7 +110,7 @@ $('.first-car-flt .change-direction-btn').on('click', () => {
         let val = parseInt($('.before_collision .firstCar-mass').text().replace(/\s/g, ''))
         let range_val = -parseInt($('.before_collision .firstCar-speed').text().replace(/\s/g, ''))
         $('.before_collision .firstCar-speed').text(- text)
-        $('.carSpeedCount').text(- speedCount)
+        $('.carSpeedCount').text(speedCount)
         $('.before_collision .firstCar__value').text((val) * (range_val))
         let firstCar__value = $('.before_collision .firstCar__value').text().replace(/\s/g, '');
         let SecondCar__value = $('.before_collision .SecondCar__value').text().replace(/\s/g, '');
@@ -122,7 +122,7 @@ $('.first-car-flt .change-direction-btn').on('click', () => {
         let val = parseInt($('.before_collision .firstCar-mass').text().replace(/\s/g, ''))
         let range_val = -parseInt($('.before_collision .firstCar-speed').text().replace(/\s/g, ''))
         $('.before_collision .firstCar-speed').text(- text)
-        $('.carSpeedCount').text(- speedCount)
+        $('.carSpeedCount').text(speedCount)
         $('.before_collision .firstCar__value').text((val) * (range_val))
         let firstCar__value = $('.before_collision .firstCar__value').text().replace(/\s/g, '');
         let SecondCar__value = $('.before_collision .SecondCar__value').text().replace(/\s/g, '');
@@ -139,7 +139,7 @@ $('.second-car-flt .change-direction-btn').on('click', () => {
         let val = parseInt($('.before_collision .SecondCar-mass').text().replace(/\s/g, ''))
         let range_val = -parseInt($('.before_collision .SecondCar-speed').text().replace(/\s/g, ''))
         $('.before_collision .SecondCar-speed').text(- text)
-        $('.SecondCarSpeedCount').text(- speedCount)
+        $('.SecondCarSpeedCount').text(speedCount)
         $('.before_collision .SecondCar__value').text((val) * (range_val))
         let firstCar__value = $('.before_collision .firstCar__value').text().replace(/\s/g, '');
         let SecondCar__value = $('.before_collision .SecondCar__value').text().replace(/\s/g, '');
@@ -151,7 +151,7 @@ $('.second-car-flt .change-direction-btn').on('click', () => {
         let val = parseInt($('.before_collision .SecondCar-mass').text().replace(/\s/g, ''))
         let range_val = -parseInt($('.before_collision .SecondCar-speed').text().replace(/\s/g, ''))
         $('.before_collision .SecondCar-speed').text(- text)
-        $('.SecondCarSpeedCount').text(- speedCount)
+        $('.SecondCarSpeedCount').text(speedCount)
         $('.before_collision .SecondCar__value').text((val) * (range_val))
         let firstCar__value = $('.before_collision .firstCar__value').text().replace(/\s/g, '');
         let SecondCar__value = $('.before_collision .SecondCar__value').text().replace(/\s/g, '');
@@ -527,16 +527,231 @@ $('.go').on('click', () => {
             }
         });
     }
-    let Vf1ToFixed = Vf1.toFixed(0)
-    let Vf2ToFixed = Vf2.toFixed(0)
-    $('.AfterfirstCar-speed').text(Vf1ToFixed);
-    $('.After_SecondCar-speed').text(Vf2ToFixed);
-    let After_firstCar__value = parseInt($('.after_collision .firstCar-mass').text().replace(/\s/g, '') * (Vf1.toFixed(1)));
-    $('.after_collision .After_firstCar__value').text(After_firstCar__value)
-    let After_SecondCar__value = parseInt($('.after_collision .SecondCar-mass').text().replace(/\s/g, '') * (Vf2.toFixed(1)));
-    $('.after_collision .After_SecondCar__value').text(After_SecondCar__value)
-    let After_final_value = parseInt((After_firstCar__value)) + parseInt((After_SecondCar__value));
-    $('.After_final-value').text(After_final_value)
+    let j = 1
+    $(".car").onPositionChanged(() => {
+        if (second()) {
+            if (j <= 1) {
+                let Vf1ToFixed = Vf1.toFixed(0)
+                let Vf2ToFixed = Vf2.toFixed(0)
+                $('.AfterfirstCar-speed').text(Vf1ToFixed);
+                $('.After_SecondCar-speed').text(Vf2ToFixed);
+                let After_firstCar__value = parseInt($('.after_collision .firstCar-mass').text().replace(/\s/g, '') * (Vf1.toFixed(1)));
+                $('.after_collision .After_firstCar__value').text(After_firstCar__value)
+                let After_SecondCar__value = parseInt($('.after_collision .SecondCar-mass').text().replace(/\s/g, '') * (Vf2.toFixed(1)));
+                $('.after_collision .After_SecondCar__value').text(After_SecondCar__value)
+                let After_final_value = parseInt((After_firstCar__value)) + parseInt((After_SecondCar__value));
+                $('.After_final-value').text(After_final_value)
+                j = 2;
+                let AfterfirstCarSpeed = $('.AfterfirstCar-speed').text().replace(/\s/g, '');
+                let AfterSecondCarSpeed = $('.After_SecondCar-speed').text().replace(/\s/g, '');
+                let AfterFirstCarValue = $('.After_firstCar__value').text().replace(/\s/g, '');
+                let AfterSecondCarValue = $('.After_SecondCar__value').text().replace(/\s/g, '');
+                let AfterFinalValue = $('.After_final-value').text().replace(/\s/g, '');
+                if (parseInt(AfterfirstCarSpeed) < 0) {
+                    let AfterfirstCarSpeedArr = AfterfirstCarSpeed.split('');
+                    $('.AfterfirstCar-speed').text(AfterfirstCarSpeedArr.join(''));
+                    $('.AfterfirstCar-speed').css({ 'margin-left': '-5px' });
+                    $('.AfterfirstCar-speed').addClass('active');
+                    $('.AfterfirstCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterfirstCarSpeed) >= 0) {
+                    $('.AfterfirstCar-speed.active').removeClass('active');
+                    $('.AfterfirstCar-speed-minus').css({ 'display': 'none' });
+                    $('.AfterfirstCar-speed').css({ 'margin-left': '0px' });
+                }
+                if (parseInt(AfterSecondCarSpeed) < 0) {
+                    let AfterSecondCarSpeedArr = AfterSecondCarSpeed.split('');
+                    $('.After_SecondCar-speed').text(AfterSecondCarSpeedArr.join(''));
+                    $('.After_SecondCar-speed').css({ 'margin-left': '-5px' });
+                    $('.After_SecondCar-speed').addClass('active');
+                    $('.After_SecondCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterSecondCarSpeed) >= 0) {
+                    $('.After_SecondCar-speed.active').removeClass('active');
+                    $('.After_SecondCar-speed-minus').css({ 'display': 'none' });
+                    $('.After_SecondCar-speed').css({ 'margin-left': '0px' });
+                }
+                if (parseInt(AfterFirstCarValue) < 0) {
+                    let AfterFirstCarValueArr = AfterFirstCarValue.split('');
+                    $('.After_firstCar__value').text(AfterFirstCarValueArr.join(''));
+                    $('.After_firstCar__value').css({ 'margin-left': '-10px' });
+                    $('.After_firstCar__value').addClass('active');
+                    $('.After_firstCar__value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterFirstCarValue) >= 0) {
+                    $('.After_firstCar__value.active').removeClass('active');
+                    $('.After_firstCar__value-minus').css({ 'display': 'none' });
+                    $('.After_firstCar__value').css({ 'margin-left': '0px' });
+                }
+                if (parseInt(AfterSecondCarValue) < 0) {
+                    let AfterSecondCarValueArr = AfterSecondCarValue.split('');
+                    $('.After_SecondCar__value').text(AfterSecondCarValueArr.join(''));
+                    $('.After_SecondCar__value').css({ 'margin-left': '-10px' });
+                    $('.After_SecondCar__value').addClass('active');
+                    $('.After_SecondCar__value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterSecondCarValue) >= 0) {
+                    $('.After_SecondCar__value.active').removeClass('active');
+                    $('.After_SecondCar__value-minus').css({ 'display': 'none' });
+                    $('.After_SecondCar__value').css({ 'margin-left': '0px' });
+                }
+                if (parseInt(AfterFinalValue) < 0) {
+                    let AfterFinalValueArr = AfterFinalValue.split('');
+                    $('.After_final-value').text(AfterFinalValueArr.join(''));
+                    $('.After_final-value').css({ 'margin-left': '-8px' });
+                    $('.After_final-value').addClass('active');
+                    $('.After_final-value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterFinalValue) >= 0) {
+                    $('.After_final-value.active').removeClass('active');
+                    $('.After_final-value-minus').css({ 'display': 'none' });
+                    $('.After_final-value').css({ 'margin-left': '0px' });
+                }
+                let AfterFirstCarMassAddSpace = $('.after_collision .firstCar-mass').text();
+                let AfterFirstCarMassAddSpaceArr = AfterFirstCarMassAddSpace.split('');
+                if (AfterFirstCarMassAddSpaceArr.length > 3) {
+                    AfterFirstCarMassAddSpaceArr.splice(AfterFirstCarMassAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .firstCar-mass').text(AfterFirstCarMassAddSpaceArr.join(''));
+                }
+                let AfterSecondCarMassAddSpace = $('.after_collision .SecondCar-mass').text();
+                let AfterSecondCarMassAddSpaceArr = AfterSecondCarMassAddSpace.split('');
+                if (AfterSecondCarMassAddSpaceArr.length > 3) {
+                    AfterSecondCarMassAddSpaceArr.splice(AfterSecondCarMassAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .SecondCar-mass').text(AfterSecondCarMassAddSpaceArr.join(''));
+                }
+                let AfterFirstCarValueAddSpace = $('.after_collision .After_firstCar__value').text();
+                let AfterFirstCarValueAddSpaceArr = AfterFirstCarValueAddSpace.split('');
+                if (AfterFirstCarValueAddSpaceArr.length > 3) {
+                    AfterFirstCarValueAddSpaceArr.splice(AfterFirstCarValueAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .After_firstCar__value').text(AfterFirstCarValueAddSpaceArr.join(''));
+                }
+                let AfterSecondCarValueAddSpace = $('.after_collision .After_SecondCar__value').text();
+                let AfterSecondCarValueAddSpaceArr = AfterSecondCarValueAddSpace.split('');
+                if (AfterSecondCarValueAddSpaceArr.length > 3) {
+                    AfterSecondCarValueAddSpaceArr.splice(AfterSecondCarValueAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .After_SecondCar__value').text(AfterSecondCarValueAddSpaceArr.join(''));
+                }
+                let AfterFinalValueAddSpace = $('.after_collision .After_final-value').text();
+                let AfterFinalValueAddSpaceArr = AfterFinalValueAddSpace.split('');
+                if (AfterFinalValueAddSpaceArr.length > 3) {
+                    AfterFinalValueAddSpaceArr.splice(AfterFinalValueAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .After_final-value').text(AfterFinalValueAddSpaceArr.join(''));
+                }
+            }
+        }
+    });
+    $(".bot-car").onPositionChanged(() => {
+        if (second()) {
+            if (j <= 1) {
+                let Vf1ToFixed = Vf1.toFixed(0)
+                let Vf2ToFixed = Vf2.toFixed(0)
+                $('.AfterfirstCar-speed').text(Vf1ToFixed);
+                $('.After_SecondCar-speed').text(Vf2ToFixed);
+                let After_firstCar__value = parseInt($('.after_collision .firstCar-mass').text().replace(/\s/g, '') * (Vf1.toFixed(1)));
+                $('.after_collision .After_firstCar__value').text(After_firstCar__value)
+                let After_SecondCar__value = parseInt($('.after_collision .SecondCar-mass').text().replace(/\s/g, '') * (Vf2.toFixed(1)));
+                $('.after_collision .After_SecondCar__value').text(After_SecondCar__value)
+                let After_final_value = parseInt((After_firstCar__value)) + parseInt((After_SecondCar__value));
+                $('.After_final-value').text(After_final_value)
+                j = 2;
+                let AfterfirstCarSpeed = $('.AfterfirstCar-speed').text().replace(/\s/g, '');
+                let AfterSecondCarSpeed = $('.After_SecondCar-speed').text().replace(/\s/g, '');
+                let AfterFirstCarValue = $('.After_firstCar__value').text().replace(/\s/g, '');
+                let AfterSecondCarValue = $('.After_SecondCar__value').text().replace(/\s/g, '');
+                let AfterFinalValue = $('.After_final-value').text().replace(/\s/g, '');
+                if (parseInt(AfterfirstCarSpeed) < 0) {
+                    let AfterfirstCarSpeedArr = AfterfirstCarSpeed.split('');
+                    $('.AfterfirstCar-speed').text(AfterfirstCarSpeedArr.join(''));
+                    $('.AfterfirstCar-speed').css({ 'margin-left': '-5px' });
+                    $('.AfterfirstCar-speed').addClass('active');
+                    $('.AfterfirstCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterfirstCarSpeed) >= 0) {
+                    $('.AfterfirstCar-speed.active').removeClass('active');
+                    $('.AfterfirstCar-speed-minus').css({ 'display': 'none' });
+                    $('.AfterfirstCar-speed').css({ 'margin-left': '0px' });
+                }
+                if (parseInt(AfterSecondCarSpeed) < 0) {
+                    let AfterSecondCarSpeedArr = AfterSecondCarSpeed.split('');
+                    $('.After_SecondCar-speed').text(AfterSecondCarSpeedArr.join(''));
+                    $('.After_SecondCar-speed').css({ 'margin-left': '-5px' });
+                    $('.After_SecondCar-speed').addClass('active');
+                    $('.After_SecondCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterSecondCarSpeed) >= 0) {
+                    $('.After_SecondCar-speed.active').removeClass('active');
+                    $('.After_SecondCar-speed-minus').css({ 'display': 'none' });
+                    $('.After_SecondCar-speed').css({ 'margin-left': '0px' });
+                }
+                if (parseInt(AfterFirstCarValue) < 0) {
+                    let AfterFirstCarValueArr = AfterFirstCarValue.split('');
+                    $('.After_firstCar__value').text(AfterFirstCarValueArr.join(''));
+                    $('.After_firstCar__value').css({ 'margin-left': '-10px' });
+                    $('.After_firstCar__value').addClass('active');
+                    $('.After_firstCar__value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterFirstCarValue) >= 0) {
+                    $('.After_firstCar__value.active').removeClass('active');
+                    $('.After_firstCar__value-minus').css({ 'display': 'none' });
+                    $('.After_firstCar__value').css({ 'margin-left': '0px' });
+                }
+                if (parseInt(AfterSecondCarValue) < 0) {
+                    let AfterSecondCarValueArr = AfterSecondCarValue.split('');
+                    $('.After_SecondCar__value').text(AfterSecondCarValueArr.join(''));
+                    $('.After_SecondCar__value').css({ 'margin-left': '-10px' });
+                    $('.After_SecondCar__value').addClass('active');
+                    $('.After_SecondCar__value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterSecondCarValue) >= 0) {
+                    $('.After_SecondCar__value.active').removeClass('active');
+                    $('.After_SecondCar__value-minus').css({ 'display': 'none' });
+                    $('.After_SecondCar__value').css({ 'margin-left': '0px' });
+                }
+                if (parseInt(AfterFinalValue) < 0) {
+                    let AfterFinalValueArr = AfterFinalValue.split('');
+                    $('.After_final-value').text(AfterFinalValueArr.join(''));
+                    $('.After_final-value').css({ 'margin-left': '-8px' });
+                    $('.After_final-value').addClass('active');
+                    $('.After_final-value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
+                }
+                if (parseInt(AfterFinalValue) >= 0) {
+                    $('.After_final-value.active').removeClass('active');
+                    $('.After_final-value-minus').css({ 'display': 'none' });
+                    $('.After_final-value').css({ 'margin-left': '0px' });
+                }
+                let AfterFirstCarMassAddSpace = $('.after_collision .firstCar-mass').text();
+                let AfterFirstCarMassAddSpaceArr = AfterFirstCarMassAddSpace.split('');
+                if (AfterFirstCarMassAddSpaceArr.length > 3) {
+                    AfterFirstCarMassAddSpaceArr.splice(AfterFirstCarMassAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .firstCar-mass').text(AfterFirstCarMassAddSpaceArr.join(''));
+                }
+                let AfterSecondCarMassAddSpace = $('.after_collision .SecondCar-mass').text();
+                let AfterSecondCarMassAddSpaceArr = AfterSecondCarMassAddSpace.split('');
+                if (AfterSecondCarMassAddSpaceArr.length > 3) {
+                    AfterSecondCarMassAddSpaceArr.splice(AfterSecondCarMassAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .SecondCar-mass').text(AfterSecondCarMassAddSpaceArr.join(''));
+                }
+                let AfterFirstCarValueAddSpace = $('.after_collision .After_firstCar__value').text();
+                let AfterFirstCarValueAddSpaceArr = AfterFirstCarValueAddSpace.split('');
+                if (AfterFirstCarValueAddSpaceArr.length > 3) {
+                    AfterFirstCarValueAddSpaceArr.splice(AfterFirstCarValueAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .After_firstCar__value').text(AfterFirstCarValueAddSpaceArr.join(''));
+                }
+                let AfterSecondCarValueAddSpace = $('.after_collision .After_SecondCar__value').text();
+                let AfterSecondCarValueAddSpaceArr = AfterSecondCarValueAddSpace.split('');
+                if (AfterSecondCarValueAddSpaceArr.length > 3) {
+                    AfterSecondCarValueAddSpaceArr.splice(AfterSecondCarValueAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .After_SecondCar__value').text(AfterSecondCarValueAddSpaceArr.join(''));
+                }
+                let AfterFinalValueAddSpace = $('.after_collision .After_final-value').text();
+                let AfterFinalValueAddSpaceArr = AfterFinalValueAddSpace.split('');
+                if (AfterFinalValueAddSpaceArr.length > 3) {
+                    AfterFinalValueAddSpaceArr.splice(AfterFinalValueAddSpaceArr.length - 3, 0, ' ');
+                    $('.after_collision .After_final-value').text(AfterFinalValueAddSpaceArr.join(''));
+                }
+            }
+        }
+    });
 })
 
 let count = 0;
@@ -595,7 +810,8 @@ $('.FirstCar__Speed').on('input', function () {
     else {
         var val = $('.FirstCar__Speed').val()
     }
-    $('.carSpeedCount').text(val)
+    let SpeedCountVal = $('.FirstCar__Speed').val();
+    $('.carSpeedCount').text(SpeedCountVal)
     $('.firstCar-speed').text(val)
     $('.before_collision .firstCar__value').text((FirstCar_mass) * (val))
     let firstCar__value = $('.before_collision .firstCar__value').text().replace(/\s/g, '');
@@ -618,7 +834,8 @@ $('.SecondCar__Speed').on('input', function () {
     else {
         var val = $('.SecondCar__Speed').val()
     }
-    $('.SecondCarSpeedCount').text(val)
+    let SecondSpeedCountVal = $('.SecondCar__Speed').val();
+    $('.SecondCarSpeedCount').text(SecondSpeedCountVal)
     $('.SecondCar-speed').text(val)
     $('.before_collision .SecondCar__value').text((SecondCar_mass) * (val))
     let firstCar__value = $('.before_collision .firstCar__value').text().replace(/\s/g, '')
@@ -699,7 +916,6 @@ $('.second-car-flt .car-mass-btn').on('click', function () {
 })
 
 let popupCount = 1;
-let SecondpopupCount = 1;
 
 $('.car-mass-btn').on('click', function () {
     if ($('.second-car-flt .change-direction-btn').prop("disabled") == false && $('.first-car-flt .change-direction-btn').prop("disabled") == false) {
@@ -711,28 +927,44 @@ $('.car-mass-btn').on('click', function () {
 $('.first-car-flt .car-mass-btn').on('click', function () {
     if (popupCount < 2) {
         $('.first_popup_block').addClass('d_flex')
-        setTimeout(function () {
+        setTimeout(() => {
             $('.first_popup_block').removeClass('d_flex')
             $('.second_popup_block').addClass('d_flex')
         }, 2000)
-        setTimeout(function () {
+        setTimeout(() => {
             $('.second_popup_block').removeClass('d_flex')
         }, 4000)
-        popupCount = 3
+        setTimeout(() => {
+            if ($('.first-car-flt img').hasClass('active') == false || $('.second-car-flt img').hasClass('active') == false) {
+                $('.fourth_popup_block').addClass('d_flex')
+            }
+        }, 9000);
+        setTimeout(() => {
+            $('.fourth_popup_block.d_flex').removeClass('d_flex')
+        }, 12000);
+        popupCount = 3;
     }
 })
 
 $('.second-car-flt .car-mass-btn').on('click', function () {
-    if (SecondpopupCount == 1) {
+    if (popupCount < 2) {
         $('.first_popup_block').addClass('d_flex')
-        setTimeout(function () {
+        setTimeout(() => {
             $('.first_popup_block').removeClass('d_flex')
             $('.second_popup_block').addClass('d_flex')
         }, 2000)
-        setTimeout(function () {
+        setTimeout(() => {
             $('.second_popup_block').removeClass('d_flex')
         }, 4000)
-        SecondpopupCount = 3
+        setTimeout(() => {
+            if ($('.first-car-flt img').hasClass('active') == false || $('.second-car-flt img').hasClass('active') == false) {
+                $('.fourth_popup_block').addClass('d_flex')
+            }
+        }, 9000);
+        setTimeout(() => {
+            $('.fourth_popup_block.d_flex').removeClass('d_flex')
+        }, 12000);
+        popupCount = 3;
     }
 })
 
@@ -759,6 +991,7 @@ $('.go').on('click', function () {
     if (parseInt(Secondheight) == 90) {
         $('.bot-car').css({ 'animation-duration': SecondNum - 2 + 's' })
     }
+    $('.fourth_popup_block').addClass('d_main_none');
 })
 
 setTimeout(function () {
@@ -782,121 +1015,121 @@ $('body').on('click', function () {
         let FirstCarSpeedArr = FirstCarSpeed.split('');
         $('.firstCar-speed').text(FirstCarSpeedArr.join(''));
         $('.firstCar-speed').addClass('active');
-        $('.firstCar-speed').css({'margin-left': '-5px'});
-        $('.firstCar-speed-minus').css({'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.firstCar-speed').css({ 'margin-left': '-5px' });
+        $('.firstCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if (parseInt(FirstCarSpeed) > 0) {
+    if (parseInt(FirstCarSpeed) >= 0) {
         $('.firstCar-speed.active').removeClass('active');
-        $('.firstCar-speed-minus').css({'display': 'none'});
-        $('.firstCar-speed').css({'margin-left': '0px'});
+        $('.firstCar-speed-minus').css({ 'display': 'none' });
+        $('.firstCar-speed').css({ 'margin-left': '0px' });
     }
     if (parseInt(SecondCarSpeed) < 0) {
         let SecondCarSpeedArr = SecondCarSpeed.split('');
         $('.SecondCar-speed').text(SecondCarSpeedArr.join(''));
         $('.SecondCar-speed').addClass('active');
-        $('.SecondCar-speed').css({'margin-left': '-5px'});
-        $('.SecondCar-speed-minus').css({'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.SecondCar-speed').css({ 'margin-left': '-5px' });
+        $('.SecondCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if (parseInt(SecondCarSpeed) > 0) {
+    if (parseInt(SecondCarSpeed) >= 0) {
         $('.SecondCar-speed.active').removeClass('active');
-        $('.SecondCar-speed-minus').css({'display': 'none'});
-        $('.SecondCar-speed').css({'margin-left': '0px'});
+        $('.SecondCar-speed-minus').css({ 'display': 'none' });
+        $('.SecondCar-speed').css({ 'margin-left': '0px' });
     }
     if (parseInt(FirstCarValue) < 0) {
         let FirstCarValueArr = FirstCarValue.split('');
         $('.firstCar__value').text(FirstCarValueArr.join(''));
         $('.firstCar__value').addClass('active');
-        $('.firstCar__value').css({'margin-left': '-10px'});
-        $('.firstCar__value-minus').css({'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.firstCar__value').css({ 'margin-left': '-10px' });
+        $('.firstCar__value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if (parseInt(FirstCarValue) > 0) { 
+    if (parseInt(FirstCarValue) >= 0) {
         $('.firstCar__value.active').removeClass('active');
-        $('.firstCar__value-minus').css({'display': 'none'});
-        $('.firstCar__value').css({'margin-left': '0px'});
+        $('.firstCar__value-minus').css({ 'display': 'none' });
+        $('.firstCar__value').css({ 'margin-left': '0px' });
     }
     if (parseInt(SecondCarValue) < 0) {
         let SecondCarValueArr = SecondCarValue.split('');
         $('.SecondCar__value').text(SecondCarValueArr.join(''));
         $('.SecondCar__value').addClass('active');
-        $('.SecondCar__value').css({'margin-left': '-10px'});
-        $('.SecondCar__value-minus').css({'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.SecondCar__value').css({ 'margin-left': '-10px' });
+        $('.SecondCar__value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if (parseInt(SecondCarValue) > 0) {
+    if (parseInt(SecondCarValue) >= 0) {
         $('.SecondCar__value.active').removeClass('active');
-        $('.SecondCar__value-minus').css({'display': 'none'});
-        $('.SecondCar__value').css({'margin-left': '0px'});
+        $('.SecondCar__value-minus').css({ 'display': 'none' });
+        $('.SecondCar__value').css({ 'margin-left': '0px' });
     }
-    if(parseInt(FinalValue) < 0) {
+    if (parseInt(FinalValue) < 0) {
         let FinalValueArr = FinalValue.split('');
         $('.final-value').text(FinalValueArr.join(''));
         $('.final-value').addClass('active');
-        $('.final-value').css({'margin-left': '-8px'});
-        $('.final-value-minus').css({'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.final-value').css({ 'margin-left': '-8px' });
+        $('.final-value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if(parseInt(FinalValue) > 0) { 
+    if (parseInt(FinalValue) >= 0) {
         $('.final-value.active').removeClass('active');
-        $('.final-value-minus').css({'display': 'none'});
-        $('.final-value').css({'margin-left': '0px'});
+        $('.final-value-minus').css({ 'display': 'none' });
+        $('.final-value').css({ 'margin-left': '0px' });
     }
     if (parseInt(AfterfirstCarSpeed) < 0) {
         let AfterfirstCarSpeedArr = AfterfirstCarSpeed.split('');
         $('.AfterfirstCar-speed').text(AfterfirstCarSpeedArr.join(''));
-        $('.AfterfirstCar-speed').css({'margin-left': '-5px'});
+        $('.AfterfirstCar-speed').css({ 'margin-left': '-5px' });
         $('.AfterfirstCar-speed').addClass('active');
-        $('.AfterfirstCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.AfterfirstCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if (parseInt(AfterfirstCarSpeed) > 0) {
+    if (parseInt(AfterfirstCarSpeed) >= 0) {
         $('.AfterfirstCar-speed.active').removeClass('active');
-        $('.AfterfirstCar-speed-minus').css({'display': 'none'});
-        $('.AfterfirstCar-speed').css({'margin-left': '0px'});
+        $('.AfterfirstCar-speed-minus').css({ 'display': 'none' });
+        $('.AfterfirstCar-speed').css({ 'margin-left': '0px' });
     }
     if (parseInt(AfterSecondCarSpeed) < 0) {
         let AfterSecondCarSpeedArr = AfterSecondCarSpeed.split('');
         $('.After_SecondCar-speed').text(AfterSecondCarSpeedArr.join(''));
-        $('.After_SecondCar-speed').css({'margin-left': '-5px'});
+        $('.After_SecondCar-speed').css({ 'margin-left': '-5px' });
         $('.After_SecondCar-speed').addClass('active');
-        $('.After_SecondCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.After_SecondCar-speed-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if (parseInt(AfterSecondCarSpeed) > 0) {
+    if (parseInt(AfterSecondCarSpeed) >= 0) {
         $('.After_SecondCar-speed.active').removeClass('active');
-        $('.After_SecondCar-speed-minus').css({'display': 'none'});
-        $('.After_SecondCar-speed').css({'margin-left': '0px'});
+        $('.After_SecondCar-speed-minus').css({ 'display': 'none' });
+        $('.After_SecondCar-speed').css({ 'margin-left': '0px' });
     }
     if (parseInt(AfterFirstCarValue) < 0) {
         let AfterFirstCarValueArr = AfterFirstCarValue.split('');
         $('.After_firstCar__value').text(AfterFirstCarValueArr.join(''));
-        $('.After_firstCar__value').css({'margin-left': '-10px'});
+        $('.After_firstCar__value').css({ 'margin-left': '-10px' });
         $('.After_firstCar__value').addClass('active');
-        $('.After_firstCar__value-minus').css({'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.After_firstCar__value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if (parseInt(AfterFirstCarValue) > 0) {
+    if (parseInt(AfterFirstCarValue) >= 0) {
         $('.After_firstCar__value.active').removeClass('active');
-        $('.After_firstCar__value-minus').css({'display': 'none'});
-        $('.After_firstCar__value').css({'margin-left': '0px'});
+        $('.After_firstCar__value-minus').css({ 'display': 'none' });
+        $('.After_firstCar__value').css({ 'margin-left': '0px' });
     }
     if (parseInt(AfterSecondCarValue) < 0) {
         let AfterSecondCarValueArr = AfterSecondCarValue.split('');
         $('.After_SecondCar__value').text(AfterSecondCarValueArr.join(''));
-        $('.After_SecondCar__value').css({'margin-left': '-10px'});
+        $('.After_SecondCar__value').css({ 'margin-left': '-10px' });
         $('.After_SecondCar__value').addClass('active');
-        $('.After_SecondCar__value-minus').css({'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.After_SecondCar__value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if (parseInt(AfterSecondCarValue) > 0) {
+    if (parseInt(AfterSecondCarValue) >= 0) {
         $('.After_SecondCar__value.active').removeClass('active');
-        $('.After_SecondCar__value-minus').css({'display': 'none'});
-        $('.After_SecondCar__value').css({'margin-left': '0px'});
+        $('.After_SecondCar__value-minus').css({ 'display': 'none' });
+        $('.After_SecondCar__value').css({ 'margin-left': '0px' });
     }
     if (parseInt(AfterFinalValue) < 0) {
         let AfterFinalValueArr = AfterFinalValue.split('');
         $('.After_final-value').text(AfterFinalValueArr.join(''));
-        $('.After_final-value').css({'margin-left': '-8px'});
+        $('.After_final-value').css({ 'margin-left': '-8px' });
         $('.After_final-value').addClass('active');
-        $('.After_final-value-minus').css({'display': 'inline-block', 'position': 'relative', 'z-index': '1000'});
+        $('.After_final-value-minus').css({ 'display': 'inline-block', 'position': 'relative', 'z-index': '1000', 'margin-right': '-7px' });
     }
-    if (parseInt(AfterFinalValue) > 0) {
+    if (parseInt(AfterFinalValue) >= 0) {
         $('.After_final-value.active').removeClass('active');
-        $('.After_final-value-minus').css({'display': 'none'});
-        $('.After_final-value').css({'margin-left': '0px'});
+        $('.After_final-value-minus').css({ 'display': 'none' });
+        $('.After_final-value').css({ 'margin-left': '0px' });
     }
 
     // Space before the thousands
@@ -904,64 +1137,82 @@ $('body').on('click', function () {
     let firstCarMassAddSpace = $('.before_collision .firstCar-mass').text();
     let firstCarMassAddSpaceArr = firstCarMassAddSpace.split('');
     if (firstCarMassAddSpaceArr.length > 3) {
-        firstCarMassAddSpaceArr.splice(firstCarMassAddSpaceArr.length - 3, 0, ' ');  
+        firstCarMassAddSpaceArr.splice(firstCarMassAddSpaceArr.length - 3, 0, ' ');
         $('.before_collision .firstCar-mass').text(firstCarMassAddSpaceArr.join(''));
     }
     let SecondCarMassAddSpace = $('.before_collision .SecondCar-mass').text();
     let SecondCarMassAddSpaceArr = SecondCarMassAddSpace.split('');
     if (SecondCarMassAddSpaceArr.length > 3) {
-        SecondCarMassAddSpaceArr.splice(SecondCarMassAddSpaceArr.length - 3, 0, ' ');  
+        SecondCarMassAddSpaceArr.splice(SecondCarMassAddSpaceArr.length - 3, 0, ' ');
         $('.before_collision .SecondCar-mass').text(SecondCarMassAddSpaceArr.join(''));
     }
     let FirstCarValueAddSpace = $('.before_collision .firstCar__value').text();
     let FirstCarValueAddSpaceArr = FirstCarValueAddSpace.split('');
     if (FirstCarValueAddSpaceArr.length > 3) {
-        FirstCarValueAddSpaceArr.splice(FirstCarValueAddSpaceArr.length - 3, 0, ' ');  
+        FirstCarValueAddSpaceArr.splice(FirstCarValueAddSpaceArr.length - 3, 0, ' ');
         $('.before_collision .firstCar__value').text(FirstCarValueAddSpaceArr.join(''));
     }
     let SecondCarValueAddSpace = $('.before_collision .SecondCar__value').text();
     let SecondCarValueAddSpaceArr = SecondCarValueAddSpace.split('');
     if (SecondCarValueAddSpaceArr.length > 3) {
-        SecondCarValueAddSpaceArr.splice(SecondCarValueAddSpaceArr.length - 3, 0, ' ');  
+        SecondCarValueAddSpaceArr.splice(SecondCarValueAddSpaceArr.length - 3, 0, ' ');
         $('.before_collision .SecondCar__value').text(SecondCarValueAddSpaceArr.join(''));
     }
     let FinalValueAddSpace = $('.before_collision .final-value').text();
     let FinalValueAddSpaceArr = FinalValueAddSpace.split('');
     if (FinalValueAddSpaceArr.length > 3) {
-        FinalValueAddSpaceArr.splice(FinalValueAddSpaceArr.length - 3, 0, ' ');  
+        FinalValueAddSpaceArr.splice(FinalValueAddSpaceArr.length - 3, 0, ' ');
         $('.before_collision .final-value').text(FinalValueAddSpaceArr.join(''));
     }
     let AfterFirstCarMassAddSpace = $('.after_collision .firstCar-mass').text();
     let AfterFirstCarMassAddSpaceArr = AfterFirstCarMassAddSpace.split('');
     if (AfterFirstCarMassAddSpaceArr.length > 3) {
-        AfterFirstCarMassAddSpaceArr.splice(AfterFirstCarMassAddSpaceArr.length - 3, 0, ' ');  
+        AfterFirstCarMassAddSpaceArr.splice(AfterFirstCarMassAddSpaceArr.length - 3, 0, ' ');
         $('.after_collision .firstCar-mass').text(AfterFirstCarMassAddSpaceArr.join(''));
     }
     let AfterSecondCarMassAddSpace = $('.after_collision .SecondCar-mass').text();
     let AfterSecondCarMassAddSpaceArr = AfterSecondCarMassAddSpace.split('');
     if (AfterSecondCarMassAddSpaceArr.length > 3) {
-        AfterSecondCarMassAddSpaceArr.splice(AfterSecondCarMassAddSpaceArr.length - 3, 0, ' ');  
+        AfterSecondCarMassAddSpaceArr.splice(AfterSecondCarMassAddSpaceArr.length - 3, 0, ' ');
         $('.after_collision .SecondCar-mass').text(AfterSecondCarMassAddSpaceArr.join(''));
     }
     let AfterFirstCarValueAddSpace = $('.after_collision .After_firstCar__value').text();
     let AfterFirstCarValueAddSpaceArr = AfterFirstCarValueAddSpace.split('');
     if (AfterFirstCarValueAddSpaceArr.length > 3) {
-        AfterFirstCarValueAddSpaceArr.splice(AfterFirstCarValueAddSpaceArr.length - 3, 0, ' ');  
+        AfterFirstCarValueAddSpaceArr.splice(AfterFirstCarValueAddSpaceArr.length - 3, 0, ' ');
         $('.after_collision .After_firstCar__value').text(AfterFirstCarValueAddSpaceArr.join(''));
     }
     let AfterSecondCarValueAddSpace = $('.after_collision .After_SecondCar__value').text();
     let AfterSecondCarValueAddSpaceArr = AfterSecondCarValueAddSpace.split('');
     if (AfterSecondCarValueAddSpaceArr.length > 3) {
-        AfterSecondCarValueAddSpaceArr.splice(AfterSecondCarValueAddSpaceArr.length - 3, 0, ' ');  
+        AfterSecondCarValueAddSpaceArr.splice(AfterSecondCarValueAddSpaceArr.length - 3, 0, ' ');
         $('.after_collision .After_SecondCar__value').text(AfterSecondCarValueAddSpaceArr.join(''));
     }
     let AfterFinalValueAddSpace = $('.after_collision .After_final-value').text();
     let AfterFinalValueAddSpaceArr = AfterFinalValueAddSpace.split('');
     if (AfterFinalValueAddSpaceArr.length > 3) {
-        AfterFinalValueAddSpaceArr.splice(AfterFinalValueAddSpaceArr.length - 3, 0, ' ');  
+        AfterFinalValueAddSpaceArr.splice(AfterFinalValueAddSpaceArr.length - 3, 0, ' ');
         $('.after_collision .After_final-value').text(AfterFinalValueAddSpaceArr.join(''));
     }
 })
+
+
+$(".car").onPositionChanged(() => {
+    if (second()) {
+        if (j <= 1) {
+            let AfterfirstCarSpeed = $('.AfterfirstCar-speed').text().replace(/\s/g, '');
+            console.log($('.AfterfirstCar-speed').text())
+        }
+    }
+});
+$(".bot-car").onPositionChanged(() => {
+    if (second()) {
+        if (j <= 1) {
+            let AfterfirstCarSpeed = $('.AfterfirstCar-speed').text().replace(/\s/g, '');
+            console.log($('.AfterfirstCar-speed').text())
+        }
+    }
+});
 
 // ===============================Popup============================
 
@@ -1017,6 +1268,11 @@ $('.second_popup_block').on('click', function () {
 })
 
 $('.third_popup_block').on('click', function () {
+    $(this).addClass('d_none')
+    $(this).removeClass('d_flex')
+})
+
+$('.fourth_popup_block').on('click', function () {
     $(this).addClass('d_none')
     $(this).removeClass('d_flex')
 })

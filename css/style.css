@@ -1,6 +1,6 @@
 /* Global CSS */
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
@@ -374,10 +374,18 @@ button:disabled {
 
 .carSpeed {
     left: 200px;
+    top: 197px;
 }
 
 .SecondCarSpeed {
     left: 1075px;
+    top: 197px;
+}
+
+.circle_symbol {
+    font-size: 7px !important;
+    vertical-align: middle;
+    padding: 0 2px;
 }
 
 .before_collision {
@@ -394,13 +402,13 @@ button:disabled {
     flex-direction: column;
     font-size: 20px;
     position: absolute;
-    left: 750px;
+    left: 725px;
     top: 25px;
 }
 
 .before--text {
     position: absolute;
-    left: -95px;
+    left: -75px;
 }
 
 .firstCar-mass, .firstCar-speed, .SecondCar-mass, .SecondCar-speed,.AfterfirstCar-speed, .After_SecondCar-speed {
@@ -409,6 +417,9 @@ button:disabled {
     min-width: 30px;
     text-align: center;
     color: transparent;
+    margin: 0 -4px !important;
+    font-size: 26px;
+    vertical-align: middle;
 }
 
 .firstCar-mass {
@@ -444,6 +455,7 @@ button:disabled {
     min-width: 30px;
     display: inline-block;
     text-align: center;
+    margin: 0 -5px;
 }
 
 .final-value {
@@ -470,7 +482,10 @@ button:disabled {
 
 .firstCar-speed, .SecondCar-speed, .firstCar__value, .SecondCar__value, .final-value, .AfterfirstCar-speed, .After_SecondCar-speed, .After_firstCar__value, .After_SecondCar__value, .After_final-value {
     position: relative;
-    font-family: 'MJXc-TeX-main-R, MJXc-TeX-main-Rw';
+    font-family: MJXc-TeX-main-R, MJXc-TeX-main-Rw;
+    font-size: 26px;
+    vertical-align: middle;
+    margin: 0 -5px !important;
 }
 
 .firstCar-speed.active::after, .SecondCar-speed.active::after, .firstCar__value.active::after, .SecondCar__value.active::after, .final-value.active::after, .AfterfirstCar-speed.active::after, .After_SecondCar-speed.active::after, .After_final-value.active::after, .After_firstCar__value.active::after, .After_SecondCar__value.active::after {
@@ -480,7 +495,7 @@ button:disabled {
     background: #ffffff;
     position: absolute;
     left: 0px;
-    top: 10px;
+    top: 15px;
     border-radius: 2px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -489,16 +504,16 @@ button:disabled {
 }
 
 .firstCar__value.active::after, .SecondCar__value.active::after, .After_firstCar__value.active::after, .After_SecondCar__value.active::after {
-    width: 6px;
+    width: 9px;
 }
 
 .final-value.active::after, .After_final-value.active::after {
-    width: 6px; 
+    width: 9px; 
 }
 
 /* Popup */
 
-.first_popup_block, .third_popup_block,.second_popup_block {
+.first_popup_block, .third_popup_block, .second_popup_block, .fourth_popup_block {
     position: fixed;
     display: flex;
     top: 0;
@@ -510,7 +525,7 @@ button:disabled {
     height: 100vh;
 }
 
-.first_popup_block img, .third_popup_block img,.second_popup_block img {
+.first_popup_block img, .third_popup_block img, .second_popup_block img, .fourth_popup_block img {
     width: 500px;
 }
 
@@ -522,4 +537,8 @@ button:disabled {
 
 .d_flex {
     display: flex;
+}
+
+.d_main_none {
+    display: none !important;
 }
